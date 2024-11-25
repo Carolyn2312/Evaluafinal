@@ -2,7 +2,6 @@
   <div class="calculo">
     <h2>Cálculo de Calificaciones</h2>
 
-    <!-- Mostrar mensaje de error global si hay algún error -->
     <div v-if="mensaje" :class="['alert', mensajeClass]">
       {{ mensaje }}
     </div>
@@ -16,7 +15,6 @@
         <div v-if="mostrarErrorNota1" class="text-danger mt-1" id="error-nota1">La nota debe estar entre 10 y 70.</div>
       </div>
 
-      <!-- Nota 2 -->
       <div class="mb-3">
         <label for="nota2" class="form-label">Nota 2:</label>
         <input type="number" id="nota2" v-model="nota2" class="form-control" min="10" max="70" required
@@ -24,7 +22,6 @@
         <div v-if="mostrarErrorNota2" class="text-danger mt-1" id="error-nota2">La nota debe estar entre 10 y 70.</div>
       </div>
 
-      <!-- Nota 3 -->
       <div class="mb-3">
         <label for="nota3" class="form-label">Nota 3:</label>
         <input type="number" id="nota3" v-model="nota3" class="form-control" min="10" max="70" required
@@ -32,7 +29,6 @@
         <div v-if="mostrarErrorNota3" class="text-danger mt-1" id="error-nota3">La nota debe estar entre 10 y 70.</div>
       </div>
 
-      <!-- Asistencia -->
       <div class="mb-3">
         <label for="asistencia" class="form-label">Asistencia:</label>
         <input type="number" id="asistencia" v-model="asistencia" class="form-control" min="0" max="100" required
@@ -43,7 +39,6 @@
       <button type="submit" class="btn btn-primary">Calcular</button>
     </form>
 
-    <!-- Resultado del cálculo -->
     <div v-if="resultado !== null" class="resultado">
       <p v-if="aprobado">El promedio es: {{ promedio.toFixed(2) }} - Aprobado</p>
       <p v-else>El promedio es: {{ promedio.toFixed(2) }} - Reprobado</p>
@@ -81,7 +76,7 @@ export default {
 
       let hayErrores = false;
 
-      // Validaciones
+      
       if (this.nota1 < 10 || this.nota1 > 70) {
         this.mostrarErrorNota1 = true;
         hayErrores = true;
@@ -102,14 +97,13 @@ export default {
         hayErrores = true;
       }
 
-      // Si hay errores, mostrar mensaje y no continuar
+      
       if (hayErrores) {
         this.mensaje = 'Por favor, ingresa valores válidos en todos los campos.';
         this.mensajeClass = 'alert-danger';
         return;
       }
 
-      // Si no hay errores, calcular promedio ponderado
       const promedioPonderado =
         (this.nota1 * 0.35) +
         (this.nota2 * 0.35) +
@@ -117,7 +111,6 @@ export default {
 
       this.promedio = promedioPonderado;
 
-      // Determinar si el estudiante aprueba
       if (promedioPonderado >= 40 && this.asistencia >= 80) {
         this.aprobado = true;
         this.mensaje = 'El cálculo fue exitoso.';

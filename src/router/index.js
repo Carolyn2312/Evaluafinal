@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Calculo from '../views/Calculo.vue';  // Vista de cálculo de calificaciones
-import Registro from '../views/Registro.vue';  // Vista del formulario de registro
+import Calculo from '../views/Calculo.vue';  
+import Registro from '../views/Registro.vue';  
 
 const routes = [
   {

@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- Barra de navegación con Bootstrap -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Programación Front End</a>
@@ -17,8 +16,7 @@
             </li>
           </ul>
         </div>
-
-        <!-- Formulario de Búsqueda -->
+        
         <form class="d-flex" role="search" aria-label="Formulario de búsqueda">
           <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" />
           <button class="btn btn-outline-success" type="submit" aria-label="Buscar">Buscar</button>
@@ -28,7 +26,7 @@
       </div>
     </nav>
 
-    <!-- Aquí se renderizan las vistas de Cálculo y Registro -->
+    
     <router-view></router-view>
   </div>
 </template>
@@ -44,6 +42,3 @@ export default {
 }
 </script>
 
-<style scoped>
-/* Aquí puedes agregar estilos adicionales si es necesario */
-</style>
